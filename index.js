@@ -1,7 +1,18 @@
 const express = require("express");
 const app = express();
 const bodyParser = require("body-parser")
+const connection = require("./database/database")
 
+//Batabase
+connection.authenticate()
+  .then(() => {
+    console.log("conexão com sucesso")
+  })
+  .catch((msgError) => {
+    console.log(msgError)
+  })
+
+connection
 //Esse comando permite que usuário envie os dados pelo formulario e bodyParser vai traduzir esses dados em uma estrutura JS
 app.use(bodyParser.urlencoded({ extended: false }))
 
@@ -18,6 +29,7 @@ app.use(express.static('public'))
 app.get("/", (req, res) => {
   res.render("index")
 });
+
 app.get("/perguntar", (req, res) => {
   res.render("perguntar")
 });
