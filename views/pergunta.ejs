@@ -11,13 +11,11 @@
           <%= pergunta.descricao%>
         </p>
         <hr>
-        <form>
-          <h4>Respota</h4>
-          <label>Resposta:</label>
-          <textarea name="corpor" placeholder="Digite sua resposta" class="form-control"></textarea>
-          <br>
-          <input type="hidden" name="pergunta" value="<%= pergunta.id %>">
-          <button class="btn btn-dark" type="submit">Responder</button>
+        <form method="POST" action="/responder">
+          <h3>Resposta</h3>
+          <textarea placeholder="Digite sua resposta" class="form-control" name="corpo"></textarea><br>
+          <input type="hidden" name="perguntaId" value="<%= pergunta.id %>" />
+          <button type="submit" class="btn btn-primary">Responder</button>
         </form>
       </div>
   </body>
