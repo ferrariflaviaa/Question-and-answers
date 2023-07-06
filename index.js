@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const bodyParser = require("body-parser")
 const connection = require("./database/database")
+const pergunta = require("./database/Pergunta")
 
 //Batabase
 connection.authenticate()
@@ -11,6 +12,7 @@ connection.authenticate()
   .catch((msgError) => {
     console.log(msgError)
   })
+
 
 connection
 //Esse comando permite que usuário envie os dados pelo formulario e bodyParser vai traduzir esses dados em uma estrutura JS
