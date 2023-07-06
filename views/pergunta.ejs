@@ -2,18 +2,23 @@
 
   <body>
     <%- include('partials/navbar') %>
-    <div class="container">
-     <hr>
-      <h3><%= pergunta.titulo %></h3>
-      <p><%= pergunta.descricao%></p>
-      <hr>
-      <form>
-        <h4>Respota</h4>
-        <label>Resposta:</label>
-        <textarea name="corpor" placeholder="Digite sua resposta" class="form-control"></textarea>
-        <br>
-        <button class="btn btn-dark" type="submit">Responder</button>
-      </form>
-    </div>
+      <div class="container">
+        <hr>
+        <h3>
+          <%= pergunta.titulo %>
+        </h3>
+        <p>
+          <%= pergunta.descricao%>
+        </p>
+        <hr>
+        <form>
+          <h4>Respota</h4>
+          <label>Resposta:</label>
+          <textarea name="corpor" placeholder="Digite sua resposta" class="form-control"></textarea>
+          <br>
+          <input type="hidden" name="pergunta" value="<%= pergunta.id %>">
+          <button class="btn btn-dark" type="submit">Responder</button>
+        </form>
+      </div>
   </body>
   <%- include('partials/footer') %>
