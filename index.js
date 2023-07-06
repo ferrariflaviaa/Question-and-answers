@@ -30,7 +30,7 @@ app.use(express.static('public'))
 //Rotas
 app.get("/", (req, res) => {
   //FindAll pesquisa todos os registro na tabela
-  Pergunta.findAll({raw: true, order: [["id", "DESC"]]}).then((perguntas)=> {
+  Pergunta.findAll({ raw: true, order: [["id", "DESC"]] }).then((perguntas) => {
     res.render("index", {
       perguntas: perguntas
     })
@@ -47,8 +47,23 @@ app.post("/salvarpergunta", (req, res) => {
   Pergunta.create({
     titulo: titulo,
     descricao: descricao,
-  }).then(()=>{
+  }).then(() => {
     res.redirect("/")
+  })
+})
+
+app.get("/pergunta/:id", (req, res) => {
+  let id = req.params.id;
+  //FindOne busca um dado com uma condição
+  Pergunta.findOne({
+    where: { id: id }
+  }).then((pergunta) => {
+    // console.log(pergunta)
+    if (pergunta !== null) {
+      res.render("pergunta")
+    } else {
+      res.redirect("/")
+    }
   })
 })
 
