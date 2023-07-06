@@ -16,3 +16,6 @@ const Pergunta = connection.define('pergunta', {
 //Sincronizando com banco de dados para criar, caso tenha não cria.
 //Force para não forçar outra criação
 Pergunta.sync({ force: false });
+
+
+module.exports = Pergunta;
