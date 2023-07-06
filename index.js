@@ -60,7 +60,9 @@ app.get("/pergunta/:id", (req, res) => {
   }).then((pergunta) => {
     // console.log(pergunta)
     if (pergunta !== null) {
-      res.render("pergunta")
+      res.render("pergunta",{
+        pergunta: pergunta
+      })
     } else {
       res.redirect("/")
     }
