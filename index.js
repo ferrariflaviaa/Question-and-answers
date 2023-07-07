@@ -61,8 +61,17 @@ app.get("/pergunta/:id", (req, res) => {
   }).then((pergunta) => {
     // console.log(pergunta)
     if (pergunta !== null) {
-      res.render("pergunta", {
-        pergunta: pergunta
+      Resposta.findAll({
+        raw: true, 
+        order: [["id", "DESC"]], 
+        where: {
+          perguntasID: pergunta.id
+        }
+      }).then((respostas) => {
+        res.render("pergunta", {
+          pergunta: pergunta,
+          respostas: respostas
+        })
       })
     } else {
       res.redirect("/")
@@ -76,8 +85,8 @@ app.post("/responder", (req, res) => {
   Resposta.create({
     corpo: corpo,
     perguntasID: perguntaId,
-  }).then(()=> {
-    res.redirect("/pergunta/"+perguntaId)
+  }).then(() => {
+    res.redirect("/pergunta/" + perguntaId)
   })
 })
 
