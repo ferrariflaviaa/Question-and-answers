@@ -1,5 +1,5 @@
-"Plataforma de pergunta e respota" <br>
-Venho apresentar a vocês uma plataforma de perguntas e respostas que utiliza as tecnologias Express, MySQL, EJS, Bootstrap e Node.
+<h1> Plataforma de pergunta e respota <h1/> 
+<h3>Venho apresentar a vocês uma plataforma de perguntas e respostas que utiliza as tecnologias Express, MySQL, EJS, Bootstrap e Node.</h3>
 
 ![image](https://github.com/ferrariflaviaa/Question-and-answers/assets/88516203/c4166101-10fa-4c73-8265-c8a7f3eebe3e)
 ![image](https://github.com/ferrariflaviaa/Question-and-answers/assets/88516203/8996bd06-f914-4aab-8187-1107f35713bc)
